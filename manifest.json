@@ -1,0 +1,21 @@
+{
+  "manifest_version": 3,
+  "name": "DevConsole Bridge",
+  "version": "1.0",
+  "description": "Bridges Chrome DevTools console output to external interface",
+  "permissions": [
+    "activeTab"
+  ],
+  "host_permissions": [
+    "http://localhost:8080/*"
+  ],
+  "background": {
+    "service_worker": "console-bridge-background-script.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["console-bridge-content-script.js"]
+    }
+  ]
+}
